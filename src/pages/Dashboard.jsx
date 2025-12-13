@@ -45,9 +45,9 @@ function Dashboard() {
           <h3 className="text-xl font-bold text-[#eeeeeee0]">
             Total Hours Spent
           </h3>
-          <p className="text-lg text-[#eeeeeeb7] font-semibold">
-            {" "}
-            totalHours hrs
+          <p className="text-3xl text-[#eeeeeeb7] font-semibold">
+           
+            hrs
           </p>
         </div>
 
@@ -58,17 +58,17 @@ function Dashboard() {
             </h2>
             <div className="m-2 mt-4">
               <p className="text-lg font-semibold">
-                {" "}
+               
                 Video<span className="text-[#003436] mx-3">➙</span>
                 <span className="font-medium text-[#012324] ">video</span>
               </p>
               <p className="text-lg font-semibold">
-                {" "}
+               
                 Course<span className="text-[#003436] mx-3">➙</span>
                 <span className="font-medium text-[#012324] ">course</span>
               </p>
               <p className="text-lg font-semibold">
-                {" "}
+               
                 Article<span className="text-[#003436] mx-3">➙</span>
                 <span className="font-medium text-[#012324] ">article</span>
               </p>
@@ -79,7 +79,7 @@ function Dashboard() {
             <h3 className="text-2xl  font-semibold text-center text-[#003436] border-b border-[#00676dc0]">
               Platform Breakdown
             </h3>
-            <div className="m-2 mt-4">
+            <div className="m-2 mt-4 ">
               <p>YouTube</p>
               <p>Udemy</p>
               <p>Coursera</p>
