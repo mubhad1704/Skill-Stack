@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 function LandingPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[url(https://img.freepik.com/free-photo/gray-painted-background_53876-94041.jpg?semt=ais_hybrid&w=740&q=80)] bg-cover bg-center ">
+    <div className="min-h-screen flex flex-col bg-cover bg-center " style={{backgroundImage: "url('/bg.jpg')"}}>
       <Navbar />
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-3xl md:text-4xl font-bold  mb-4">
