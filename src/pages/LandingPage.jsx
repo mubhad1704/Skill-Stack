@@ -1,15 +1,43 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function LandingPage() {
   return (
-    <div>
-      <Navbar/>
+    <div className="min-h-screen flex flex-col bg-[url(https://img.freepik.com/free-photo/gray-painted-background_53876-94041.jpg?semt=ais_hybrid&w=740&q=80)] bg-cover bg-center ">
+      <Navbar />
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
+        <h1 className="text-3xl md:text-4xl font-bold  mb-4">
+          Track Your Learning. Boost Your Skills.
+        </h1>
 
-      <Footer/>
+        <p className="text-gray-800 text-lg max-w-xl mb-8 font-semibold mt-2 tracking-wide">
+          SkillStack helps you organize courses, tutorials, and certifications —
+          all in one place. Stay motivated and grow consistently.
+        </p>
+
+        <a href="/dashboard" className="mb-8 hover:underline hover:text-[#001718] text-[#01494d] font-bold tracking-wider">Dashboard →</a>
+
+         <div className="flex gap-4">
+          <a
+            href="/add"
+            className="bg-gray-100/20  border-2 border-[#00acb5] px-6 py-3 rounded-lg hover:bg-[#00acb557] hover:text-white transition shadow"
+          >
+             Add Your Skill
+          </a>
+
+          <a
+            href="/skills"
+            className="bg-[#00acb54f] border border-[#00acb5a4]  px-6 py-3 rounded-lg hover:bg-[#00acb5a4] transition"
+          >
+            View Skills
+          </a>
+        </div>
+
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default LandingPage
+export default LandingPage;

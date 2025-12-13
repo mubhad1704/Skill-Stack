@@ -14,7 +14,7 @@ function App() {
         <Route path='/'  element={<LandingPage/>}/>
         <Route path='/dashboard'  element={<Dashboard/>}/>
         <Route path='/add'  element={<AddSkill/>}/>
-        <Route path='/skill'  element={<SkillList/>}/>
+        <Route path='/skills'  element={<SkillList/>}/>
       </Routes>
     </>
   )

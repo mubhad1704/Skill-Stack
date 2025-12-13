@@ -8,14 +8,15 @@ function Navbar() {
             Skill<span className='text-[#00ADB5]'>Stack</span>
         </h1>
 
-        <div className="hidden sm:block space-x-6 text-[#EEEEEE]">
+        <div className="hidden  sm:block space-x-6 text-[#EEEEEE]">
             <a href="/" className=' hover:text-[#00ADB5]'>Home</a>
+            <a href="/" className=' hover:text-[#00ADB5]'>Dashboard</a>
             <a href="/add" className=' hover:text-[#00ADB5]'>Add Skills</a>
             <a href="/skills" className=' hover:text-[#00ADB5]'>View Skills</a>
         </div>
 
         <div className='hidden sm:block'>
-            <h2>About</h2>
+            <a href='' className='text-[#00a5ade5]'>About</a>
         </div>
       </div>
     </nav>
