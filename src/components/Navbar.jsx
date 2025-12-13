@@ -8,9 +8,9 @@ function Navbar() {
             Skill<span className='text-[#00ADB5]'>Stack</span>
         </h1>
 
-        <div className="hidden  sm:block space-x-6 text-[#EEEEEE]">
+        <div className="hidden  sm:block space-x-10 text-[#EEEEEE]">
             <a href="/" className=' hover:text-[#00ADB5]'>Home</a>
-            <a href="/" className=' hover:text-[#00ADB5]'>Dashboard</a>
+            <a href="/dashboard" className=' hover:text-[#00ADB5]'>Dashboard</a>
             <a href="/add" className=' hover:text-[#00ADB5]'>Add Skills</a>
             <a href="/skills" className=' hover:text-[#00ADB5]'>View Skills</a>
         </div>
