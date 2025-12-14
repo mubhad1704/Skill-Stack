@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 function Dashboard() {
   return (
-    <div className="min-h-screen flex flex-col bg-cover bg-center " style={{backgroundImage:"url('/dashboardbg.jpg')"}}>
+    <div className="min-h-screen flex flex-col bg-cover bg-center " style={{backgroundImage:"url('/bg2.jpg')"}}>
       <Navbar />
       <div className="flex-1 flex flex-col justify-center w-full">
         <h1 className="text-center text-2xl md:text-4xl my-6 md:mt-10 font-bold  ">

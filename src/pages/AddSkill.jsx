@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 function AddSkill() {
   return (
-    <div className='min-h-screen bg-cover bg-center' style={{backgroundImage:"url('/skillsbg.jpg')"}}>
+    <div className='min-h-screen flex flex-col bg-cover bg-center' style={{backgroundImage:"url('/skillsbg.jpg')"}}>
       <Navbar/>
         <div className='flex-1 flex flex-col justify-center items-center mt-10 '>
           <h1 className='text-3xl md:text-4xl font-bold mb-5'>Add Learning <span className="bg-linear-to-b from-[#00a2aad0] via-[#007e85d0] to-[#004c50d0]  bg-clip-text text-transparent">Goal</span></h1>
