@@ -31,8 +31,7 @@ function SkillList() {
     width: 400,
     maxHeight: "80vh",
     overflowY: "auto", 
-    bgcolor: "background.paper",
-    border: "3px solid #86b5c5",
+    bgcolor: "#d0f8fa", 
     boxShadow: 24,
     p: 4,
     borderRadius: "12px"
@@ -91,8 +90,9 @@ function SkillList() {
                         id="modal-modal-title"
                         variant="h6"
                         component="h2"
+                        sx={{ textAlign: "center", fontWeight: "bold",mb: 2,color: "#007c83" }}
                       >
-                        Update your Goal
+                        UPDATE
                       </Typography>
                       <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         <EditSkill

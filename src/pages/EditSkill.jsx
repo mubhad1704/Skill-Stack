@@ -85,7 +85,7 @@ function EditSkill({ skillId, onSuccess }) {
           name="skill_name"
           value={form.skill_name}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50 "
           required
         />
       </div>
@@ -96,7 +96,7 @@ function EditSkill({ skillId, onSuccess }) {
           name="resource_type"
           value={form.resource_type}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
           required
         >
           <option value="">Select</option>
@@ -112,7 +112,7 @@ function EditSkill({ skillId, onSuccess }) {
           name="platform"
           value={form.platform}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
           
         >
           <option value="">Select</option>
@@ -129,7 +129,7 @@ function EditSkill({ skillId, onSuccess }) {
           name="status"
           value={form.status}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
           required
         >
           <option value="">Select</option>
@@ -146,7 +146,7 @@ function EditSkill({ skillId, onSuccess }) {
           name="hours"
           value={form.hours}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
           min="0"
         />
       </div>
@@ -158,7 +158,7 @@ function EditSkill({ skillId, onSuccess }) {
           name="difficulty"
           value={form.difficulty}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
           min="1"
           max="5"
         />
@@ -170,12 +170,12 @@ function EditSkill({ skillId, onSuccess }) {
           name="notes"
           value={form.notes}
           onChange={handleChange}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
           rows="3"
         />
       </div>
 
-      <button className="w-full bg-[#007c83] text-white p-2 rounded hover:bg-[#00666b]">
+      <button className="w-full bg-[#007c83] text-white p-2 rounded-xl border-[#007c83] hover:bg-[#00666b] cursor-pointer">
         Update Skill
       </button>
     </form>

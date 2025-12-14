@@ -59,20 +59,20 @@ function AddSkill() {
             <form className='space-y-4' onSubmit={handleSubmit}>
 
             <div className='flex flex-col'>
-              <label className='font-bold text-[#00595e] md:text-lg'>Skill Name</label>
+              <label className='font-bold text-[#00595e] md:text-lg'>Skill Name :</label>
               <input type="text"
                 name='skill_name'
                 value={form.skill_name}
                 onChange={handleChange}
                 placeholder='Ex: React, Python...'
-                className='border border-[#007c83] p-2 rounded-xl bg-white/20'
+                className='border border-[#007c83] p-2 rounded-xl bg-white/50'
                 required
               />
             </div>
 
             <div>
-              <label className='font-bold text-[#00595e] md:text-lg'>Resource Type</label>
-              <select name="resource_type" id="" className='bg-white/20 border border-[#007c83] p-2 rounded-xl ms-3'
+              <label className='font-bold text-[#00595e] md:text-lg'>Resource Type :</label>
+              <select name="resource_type" id="" className='bg-white/50 border border-[#007c83] p-2 rounded-xl ms-3'
                 value={form.resource_type}
                 onChange={handleChange}
                 required
@@ -85,8 +85,8 @@ function AddSkill() {
             </div>
 
             <div>
-              <label className='font-bold text-[#00595e] md:text-lg'>Select Platform</label>
-              <select name="platform" id="" className='border bg-white/20 border-[#007c83] p-2 rounded-xl ms-3'
+              <label className='font-bold text-[#00595e] md:text-lg'>Select Platform :</label>
+              <select name="platform" id="" className='border bg-white/50 border-[#007c83] p-2 rounded-xl ms-3'
                 value={form.platform}
                 onChange={handleChange}
                 required
@@ -100,8 +100,8 @@ function AddSkill() {
             </div>
 
             <div>
-              <label className='font-bold text-[#00595e] md:text-lg'>Status</label>
-              <select name="status" id=""className='border border-[#007c83] p-2 rounded-xl ms-3 bg-white/20'
+              <label className='font-bold text-[#00595e] md:text-lg'>Status :</label>
+              <select name="status" id=""className='border border-[#007c83] p-2 rounded-xl ms-3 bg-white/50'
               value={form.status}
               onChange={handleChange}
               required
@@ -114,24 +114,24 @@ function AddSkill() {
             </div>
 
              <div>
-              <label className='font-bold text-[#00595e] md:text-lg'>Hours Spent</label>
-              <input type="number" name='hours' placeholder='Ex: 4' min="0" className='border border-[#007c83] p-2 rounded-xl ms-3 bg-white/20'
+              <label className='font-bold text-[#00595e] md:text-lg'>Hours Spent :</label>
+              <input type="number" name='hours' placeholder='Ex: 4' min="0" className='border border-[#007c83] p-2 rounded-xl ms-3 bg-white/50'
               value={form.hours}
               onChange={handleChange}
               />
             </div>
 
              <div>
-              <label className='font-bold text-[#00595e] md:text-lg'>Difficulty Rating</label>
-              <input type="number" name='difficulty' placeholder='1-Easy, 5-Hard' min="1" max="5" className='border border-[#007c83] p-2 rounded-xl ms-3 w-36 bg-white/20'
+              <label className='font-bold text-[#00595e] md:text-lg'>Difficulty Rating :</label>
+              <input type="number" name='difficulty' placeholder='1-Easy, 5-Hard' min="1" max="5" className='border border-[#007c83] p-2 rounded-xl ms-3 w-36 bg-white/50'
               value={form.difficulty}
               onChange={handleChange}
               />
             </div>
 
             <div className='flex flex-col'>
-              <label className='font-bold text-[#00595e] md:text-lg'>Notes</label>
-              <textarea name="notes" id="" rows="4" placeholder='Notes...' className='border border-[#007c83] p-2 rounded-xl bg-white/20 '
+              <label className='font-bold text-[#00595e] md:text-lg'>Notes :</label>
+              <textarea name="notes" id="" rows="4" placeholder='Notes...' className='border border-[#007c83] p-2 rounded-xl bg-white/50 '
               value={form.notes}
               onChange={handleChange}
               ></textarea>
