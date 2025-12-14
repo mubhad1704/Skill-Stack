@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import API from "../api";
 
 function EditSkill({ skillId, onSuccess }) {
@@ -16,34 +16,39 @@ function EditSkill({ skillId, onSuccess }) {
 
   const [loading, setLoading] = useState(true);
 
-  const loadSkill = async () => {
+  useEffect(() => {
     if (!skillId) return;
 
-    try {
-      const res = await API.get(`/skills/${skillId}`);
-      const skill = res.data;
+    let isMounted = true;
 
-      setForm({
-        skill_name: skill.skill_name || "",
-        resource_type: skill.resource_type || "",
-        platform: skill.platform || "",
-        status: skill.status || "",
-        hours: skill.hours || "",
-        notes: skill.notes || "",
-        difficulty: skill.difficulty || "",
-      });
+    const fetchSkill = async () => {
+      try {
+        const res = await API.get(`/skills/${skillId}`);
+        const skill = res.data;
 
-      setLoading(false);
-    } catch (err) {
-      console.error(err);
-      alert("Failed to load skill");
-    }
-  };
+        if (isMounted) {
+          setForm({
+            skill_name: skill.skill_name || "",
+            resource_type: skill.resource_type || "",
+            platform: skill.platform || "",
+            status: skill.status || "",
+            hours: skill.hours || "",
+            notes: skill.notes || "",
+            difficulty: skill.difficulty || "",
+          });
+          setLoading(false);
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Failed to load skill");
+      }
+    };
 
+    fetchSkill();
 
-  useEffect(() => {
-    setLoading(true)
-    loadSkill();
+    return () => {
+      isMounted = false;
+    };
   }, [skillId]);
 
    const handleSubmit = async (e) => {
@@ -72,11 +77,11 @@ function EditSkill({ skillId, onSuccess }) {
     setForm({...form,[e.target.name]: e.target.value})
   }
 
+  if (loading) return <p>loading...</p>
+
   return (
   <div>
-    {loading && ( 
-      <p>Loading...</p>
-    )}
+    
     <form className="space-y-4" onSubmit={handleSubmit}>
       <div>
         <label className="font-bold">Skill Name</label>

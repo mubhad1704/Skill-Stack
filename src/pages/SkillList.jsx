@@ -14,6 +14,7 @@ function SkillList() {
   const [skills, setSkills] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [open, setOpen] = React.useState(false);
+
   const handleOpen = (id) => {
     setSelectedId(id);
     setOpen(true);
@@ -47,9 +48,12 @@ function SkillList() {
     loadSkills();
   };
 
-  useEffect(() => {
-    loadSkills();
-  }, []);
+ useEffect(() => {
+  const run = async () => {
+    await loadSkills();
+  };
+  run();
+}, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-linear-to-br from-[#e7f1f5] via-[#c5f3ffe1] to-[#b2dfeb]">
