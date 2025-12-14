@@ -8,7 +8,7 @@ function LandingPage() {
       <Navbar />
       <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-3xl md:text-4xl font-bold  mb-4">
-          Track Your Learning. Boost Your Skills.
+          Track Your Learning. <span className="bg-linear-to-b from-[#003f42d0] via-[#002527d0] to-[#000000d0]  bg-clip-text text-transparent">Boost Your Skills.</span> 
         </h1>
 
         <p className="text-gray-800 text-lg max-w-xl mb-8 font-semibold mt-2 tracking-wide">
