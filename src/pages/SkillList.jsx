@@ -29,13 +29,24 @@ function SkillList() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
-    maxHeight: "80vh",
+
+    width: {
+      xs: "92%",
+      sm: 420,
+    },
+
+    maxHeight: "85vh",
     overflowY: "auto",
     bgcolor: "#d0f8fa",
     boxShadow: 24,
-    p: 4,
+    p: { xs: 2, sm: 4 },
     borderRadius: "12px",
+
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   };
 
   const loadSkills = async () => {
@@ -76,7 +87,7 @@ function SkillList() {
         </div>
       ),
       {
-        autoClose: false, 
+        autoClose: false,
         closeOnClick: false,
       }
     );
@@ -122,6 +133,7 @@ function SkillList() {
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
+                     disableScrollLock={false}
                   >
                     <Box sx={style}>
                       <Typography
@@ -131,7 +143,7 @@ function SkillList() {
                         sx={{
                           textAlign: "center",
                           fontWeight: "bold",
-                          mb: 2,
+                          mb: { xs: 1.5, sm: 2 },
                           color: "#007c83",
                         }}
                       >

@@ -17,7 +17,7 @@ function Navbar() {
         </h1>
         </div>
 
-        <div className="hidden text-sm sm:block space-x-8 text-[#EEEEEE]">
+        <div className="hidden  sm:block space-x-8 text-[#EEEEEE]">
             <a href="/" className=' hover:text-[#00ADB5]'>Home</a>
             <a href="/dashboard" className=' hover:text-[#00ADB5]'>Dashboard</a>
             <a href="/add" className=' hover:text-[#00ADB5]'>Add Skills</a>

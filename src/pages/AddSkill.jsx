@@ -55,7 +55,7 @@ function AddSkill() {
     >
       <Navbar />
       <div className="flex-1 flex flex-col justify-center items-center mt-10 ">
-        <h1 className="text-3xl md:text-4xl font-bold mb-5">
+        <h1 className="text-3xl md:text-4xl font-bold mb-5 text-center">
           Add Learning{" "}
           <span className="bg-linear-to-b from-[#00a2aad0] via-[#007e85d0] to-[#004c50d0]  bg-clip-text text-transparent">
             Goal
