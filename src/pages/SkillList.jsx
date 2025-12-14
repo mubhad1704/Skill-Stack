@@ -5,10 +5,10 @@ import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import API from "../api";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import EditSkill from "./EditSkill";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 function SkillList() {
   const [skills, setSkills] = useState([]);
@@ -31,11 +31,11 @@ function SkillList() {
     transform: "translate(-50%, -50%)",
     width: 400,
     maxHeight: "80vh",
-    overflowY: "auto", 
-    bgcolor: "#d0f8fa", 
+    overflowY: "auto",
+    bgcolor: "#d0f8fa",
     boxShadow: 24,
     p: 4,
-    borderRadius: "12px"
+    borderRadius: "12px",
   };
 
   const loadSkills = async () => {
@@ -43,17 +43,51 @@ function SkillList() {
     setSkills(result.data);
   };
 
-  const deleteSkill = async (id) => {
-    await API.delete(`/skills/${id}`);
-    loadSkills();
+  const confirmDelete = (id) => {
+    toast(
+      ({ closeToast }) => (
+        <div className="flex flex-col gap-3">
+          <p className="font-semibold">Delete this skill?</p>
+
+          <div className="flex justify-end gap-2">
+            <button
+              className="px-3 py-1 rounded bg-gray-500 hover:bg-gray-600"
+              onClick={closeToast}
+            >
+              Cancel
+            </button>
+
+            <button
+              className="px-3 py-1 rounded bg-red-600 hover:bg-red-700"
+              onClick={async () => {
+                try {
+                  await API.delete(`/skills/${id}`);
+                  toast.success("Skill deleted successfully!");
+                  loadSkills();
+                } catch (err) {
+                  toast.error("Failed to delete skill!");
+                }
+                closeToast();
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        autoClose: false, 
+        closeOnClick: false,
+      }
+    );
   };
 
- useEffect(() => {
-  const run = async () => {
-    await loadSkills();
-  };
-  run();
-}, []);
+  useEffect(() => {
+    const run = async () => {
+      await loadSkills();
+    };
+    run();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-linear-to-br from-[#e7f1f5] via-[#c5f3ffe1] to-[#b2dfeb]">
@@ -94,7 +128,12 @@ function SkillList() {
                         id="modal-modal-title"
                         variant="h6"
                         component="h2"
-                        sx={{ textAlign: "center", fontWeight: "bold",mb: 2,color: "#007c83" }}
+                        sx={{
+                          textAlign: "center",
+                          fontWeight: "bold",
+                          mb: 2,
+                          color: "#007c83",
+                        }}
                       >
                         UPDATE
                       </Typography>
@@ -112,7 +151,7 @@ function SkillList() {
 
                   <button
                     className="text-xl text-[#f50000ab] cursor-pointer"
-                    onClick={() => deleteSkill(skill.id)}
+                    onClick={() => confirmDelete(skill.id)}
                   >
                     <MdDeleteForever />
                   </button>
@@ -146,6 +185,19 @@ function SkillList() {
       </div>
 
       <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import API from "../api";
 
 function EditSkill({ skillId, onSuccess }) {
@@ -40,7 +40,7 @@ function EditSkill({ skillId, onSuccess }) {
         }
       } catch (err) {
         console.error(err);
-        alert("Failed to load skill");
+        toast.warning("Failed to load skill");
       }
     };
 
@@ -65,11 +65,11 @@ function EditSkill({ skillId, onSuccess }) {
         difficulty: Number(form.difficulty),
       });
 
-      alert("Skill updated successfully!");
+      toast.success("Skill updated successfully!");
       onSuccess();
     } catch (err) {
       console.error(err);
-      alert("Failed to update skill");
+      toast.error("Failed to update skill");
     }
   };
 
@@ -184,6 +184,19 @@ function EditSkill({ skillId, onSuccess }) {
         Update Skill
       </button>
     </form>
+    <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
   </div>
   
 )}
