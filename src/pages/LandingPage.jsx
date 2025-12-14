@@ -21,7 +21,7 @@ function LandingPage() {
             <div className="flex flex-col md:flex-row gap-4">
             <a
                 href="/add"
-                className="bg-gray-100/20  border-2 border-[#00acb5] px-6 py-3 rounded-lg hover:bg-[#00acb557] hover:text-white transition shadow text-sm md:text-base"
+                className="bg-gray-100/20  border-2 border-[#00acb5] px-6 py-3 rounded-lg hover:bg-[#00acb557] transition shadow text-sm md:text-base"
             >
                 Add Your Skill
             </a>

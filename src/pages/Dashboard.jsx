@@ -42,7 +42,7 @@ function Dashboard() {
         </div>
 
         <div className="inline-flex flex-col items-center border-2 rounded-xl px-8 py-4 self-center bg-[#002729be] border-[#00676dc0] shadow-md shadow-[#00676dc0] my-8">
-          <h3 className="text-xl font-bold text-[#eeeeeee0]">
+          <h3 className="text-xl font-bold text-[#eeeeeef6]">
             Total Hours Spent
           </h3>
           <p className="text-3xl text-[#eeeeeeb7] font-semibold">
