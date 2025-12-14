@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import EditSkill from "./EditSkill";
 import { Bounce, ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
+
 
 function SkillList() {
   const [skills, setSkills] = useState([]);
@@ -55,43 +57,28 @@ function SkillList() {
   };
 
   const confirmDelete = (id) => {
-    toast(
-      ({ closeToast }) => (
-        <div className="flex flex-col gap-3">
-          <p className="font-semibold">Delete this skill?</p>
-
-          <div className="flex justify-end gap-2">
-            <button
-              className="px-3 py-1 rounded bg-gray-500 hover:bg-gray-600"
-              onClick={closeToast}
-            >
-              Cancel
-            </button>
-
-            <button
-              className="px-3 py-1 rounded bg-red-600 hover:bg-red-700"
-              onClick={async () => {
-                try {
-                  await API.delete(`/skills/${id}`);
-                  toast.success("Skill deleted successfully!");
-                  loadSkills();
-                } catch (err) {
-                  toast.error("Failed to delete skill!");
-                }
-                closeToast();
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      ),
-      {
-        autoClose: false,
-        closeOnClick: false,
+  Swal.fire({
+    title: "Do you want to delete this skill?",
+    text: "This action cannot be undone!",
+    icon: "warning",
+    
+    showCancelButton: true,
+    confirmButtonText: "Delete",
+    
+    confirmButtonColor: "#d33",
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        await API.delete(`/skills/${id}`);
+        Swal.fire("Deleted!", "Skill deleted successfully.", "success");
+        loadSkills();
+      } catch (err) {
+        Swal.fire("Error!", "Failed to delete skill.", "error");
       }
-    );
-  };
+    } 
+  });
+};
+
 
   useEffect(() => {
     const run = async () => {

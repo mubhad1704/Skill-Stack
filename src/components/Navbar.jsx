@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Tooltip from '@mui/material/Tooltip';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -12,9 +13,11 @@ function Navbar() {
       <div className='flex justify-between items-center'>
         <div className='flex justify-center items-center gap-2'>
           <img className='w-8 h-8 mb-1' src="logo.png" alt="" />
+        <Link to="/">
         <h1 className='text-xl font-bold text-[#EEEEEE]'>
             Skill<span className='text-[#00ADB5]'>Stack</span>
         </h1>
+        </Link>
         </div>
 
         <div className="hidden  sm:block space-x-8 text-[#EEEEEE]">
