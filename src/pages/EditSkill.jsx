@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Bounce, ToastContainer, toast } from "react-toastify";
 import API from "../api";
+import Swal from "sweetalert2";
 
 function EditSkill({ skillId, onSuccess }) {
-  
   const [form, setForm] = useState({
     skill_name: "",
     resource_type: "",
@@ -40,7 +39,11 @@ function EditSkill({ skillId, onSuccess }) {
         }
       } catch (err) {
         console.error(err);
-        toast.warning("Failed to load skill");
+        Swal.fire({
+          icon: "warning",
+          title: "Load Failed",
+          text: "Failed to load skill details",
+        });
       }
     };
 
@@ -51,7 +54,7 @@ function EditSkill({ skillId, onSuccess }) {
     };
   }, [skillId]);
 
-   const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -65,140 +68,136 @@ function EditSkill({ skillId, onSuccess }) {
         difficulty: Number(form.difficulty),
       });
 
-      toast.success("Skill updated successfully!");
+      
       onSuccess();
+      await Swal.fire({
+        icon: "success",
+        title: "Updated!",
+        text: "Skill updated successfully",
+        timer: 1500,
+        showConfirmButton: false,
+      });
     } catch (err) {
       console.error(err);
-      toast.error("Failed to update skill");
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: "Could not update the skill. Please try again.",
+      });
     }
   };
 
   const handleChange = (e) => {
-    setForm({...form,[e.target.name]: e.target.value})
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  if (loading) return <p>loading...</p>
+  if (loading) return <p>loading...</p>;
 
   return (
-  <div>
-    
-    <form className="space-y-4" onSubmit={handleSubmit}>
-      <div>
-        <label className="font-bold">Skill Name</label>
-        <input
-          type="text"
-          name="skill_name"
-          value={form.skill_name}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50 "
-          required
-        />
-      </div>
+    <div>
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <div>
+          <label className="font-bold">Skill Name</label>
+          <input
+            type="text"
+            name="skill_name"
+            value={form.skill_name}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50 "
+            required
+          />
+        </div>
 
-      <div>
-        <label className="font-bold">Resource Type</label>
-        <select
-          name="resource_type"
-          value={form.resource_type}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
-          required
-        >
-          <option value="">Select</option>
-          <option value="video">Video</option>
-          <option value="course">Course</option>
-          <option value="article">Article</option>
-        </select>
-      </div>
+        <div>
+          <label className="font-bold">Resource Type</label>
+          <select
+            name="resource_type"
+            value={form.resource_type}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
+            required
+          >
+            <option value="">Select</option>
+            <option value="video">Video</option>
+            <option value="course">Course</option>
+            <option value="article">Article</option>
+          </select>
+        </div>
 
-      <div>
-        <label className="font-bold">Platform</label>
-        <select
-          name="platform"
-          value={form.platform}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
-          
-        >
-          <option value="">Select</option>
-          <option value="youtube">YouTube</option>
-          <option value="udemy">Udemy</option>
-          <option value="coursera">Coursera</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
+        <div>
+          <label className="font-bold">Platform</label>
+          <select
+            name="platform"
+            value={form.platform}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
+          >
+            <option value="">Select</option>
+            <option value="youtube">YouTube</option>
+            <option value="udemy">Udemy</option>
+            <option value="coursera">Coursera</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-      <div>
-        <label className="font-bold">Status</label>
-        <select
-          name="status"
-          value={form.status}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
-          required
-        >
-          <option value="">Select</option>
-          <option value="started">Started</option>
-          <option value="in-progress">In Progress</option>
-          <option value="completed">Completed</option>
-        </select>
-      </div>
+        <div>
+          <label className="font-bold">Status</label>
+          <select
+            name="status"
+            value={form.status}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
+            required
+          >
+            <option value="">Select</option>
+            <option value="started">Started</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
 
-      <div>
-        <label className="font-bold">Hours</label>
-        <input
-          type="number"
-          name="hours"
-          value={form.hours}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
-          min="0"
-        />
-      </div>
+        <div>
+          <label className="font-bold">Hours</label>
+          <input
+            type="number"
+            name="hours"
+            value={form.hours}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
+            min="0"
+          />
+        </div>
 
-      <div>
-        <label className="font-bold">Difficulty (1–5)</label>
-        <input
-          type="number"
-          name="difficulty"
-          value={form.difficulty}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
-          min="1"
-          max="5"
-        />
-      </div>
+        <div>
+          <label className="font-bold">Difficulty (1–5)</label>
+          <input
+            type="number"
+            name="difficulty"
+            value={form.difficulty}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
+            min="1"
+            max="5"
+          />
+        </div>
 
-      <div>
-        <label className="font-bold">Notes</label>
-        <textarea
-          name="notes"
-          value={form.notes}
-          onChange={handleChange}
-          className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
-          rows="3"
-        />
-      </div>
+        <div>
+          <label className="font-bold">Notes</label>
+          <textarea
+            name="notes"
+            value={form.notes}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-xl border-[#007c83] bg-white/50"
+            rows="3"
+          />
+        </div>
 
-      <button className="w-full bg-[#007c83] text-white p-2 rounded-xl border-[#007c83] hover:bg-[#00666b] cursor-pointer">
-        Update Skill
-      </button>
-    </form>
-    <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      />
-  </div>
-  
-)}
+        <button className="w-full bg-[#007c83] text-white p-2 rounded-xl border-[#007c83] hover:bg-[#00666b] cursor-pointer">
+          Update Skill
+        </button>
+      </form>
+    </div>
+  );
+}
 
 export default EditSkill;

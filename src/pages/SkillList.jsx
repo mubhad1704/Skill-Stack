@@ -8,7 +8,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import EditSkill from "./EditSkill";
-import { Bounce, ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 
@@ -184,19 +183,7 @@ function SkillList() {
       </div>
 
       <Footer />
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      />
+      
     </div>
   );
 }
