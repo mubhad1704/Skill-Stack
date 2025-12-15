@@ -30,9 +30,9 @@ function Dashboard() {
   const courseCount = skills.filter((s) => s.resource_type === "course").length;
   const articleCount = skills.filter((s) => s.resource_type === "article").length;
 
-  const ytCount = skills.filter((s) => s.platform === "YouTube").length;
-  const udemyCount = skills.filter((s) => s.platform === "Udemy").length;
-  const courseraCount = skills.filter((s) => s.platform === "Coursera").length;
+  const ytCount = skills.filter((s) => s.platform === "youTube").length;
+  const udemyCount = skills.filter((s) => s.platform === "udemy").length;
+  const courseraCount = skills.filter((s) => s.platform === "coursera").length;
   const otherCount = skills.filter((s) => s.platform === "Other").length;
 
   const completionRate = totalSkills === 0 ? 0 : Math.round((completed/ totalSkills)*100)
