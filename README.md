@@ -1,16 +1,107 @@
-# React + Vite
+SkillStack – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkillStack is a personal skill-tracking application that helps users organize courses, tutorials, and certifications. The frontend is built with React, TailwindCSS, Vite, and connects to a backend API to manage skill data.
 
-Currently, two official plugins are available:
+Features:-
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add, edit, and delete learning goals (skills)
 
-## React Compiler
+- Dashboard with skill statistics:
+ Total skills  
+ Status breakdown (Started, In Progress, Completed)
+ Resource type breakdown (Video, Course, Article)
+ Platform breakdown (YouTube, Udemy, Coursera, Other)
+ Total hours spent and completion rate
+ Personalized insights
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive navigation bar with mobile-friendly toggle
 
-## Expanding the ESLint configuration
+- 404 page with animated feedback
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Form validation, toast notifications, and modal-based skill editing
+
+- SPA routing with React Router DOM
+
+⚙️Setup Instructions:-
+
+Prerequisites
+
+- Node.js ≥ 18.x
+
+- npm or yarn
+
+Steps:-
+
+1. Clone the repository
+
+git clone your-frontend-repo-url //
+cd skill-stack-frontend
+
+
+2. Install dependencies
+
+npm install
+# or
+yarn
+
+
+3. Run in development mode
+
+npm run dev
+# or
+yarn dev
+
+
+This will start the frontend at http://localhost:5173/ (default Vite port).
+
+4. Build for production
+
+npm run build
+# or
+yarn build
+
+
+5. Preview production build
+
+npm run preview
+# or
+yarn preview
+
+🔗 Backend Connection
+
+API is configured in src/api.js:
+
+import axios from "axios";
+const API = axios.create({
+  baseURL: "https://skill-stack-backend-production.up.railway.app",
+});
+export default API;
+
+
+Make sure your backend is running and accessible to fetch and modify skill data.
+
+🛠️Tech Stack:-
+- Frontend Framework: React 19
+- Bundler: Vite
+- Styling: TailwindCSS 4
+- UI Components: Material-UI
+- Routing: React Router DOM
+- HTTP Client: Axios
+- Notifications: React Toastify, SweetAlert2
+- Icons: React Icons
+
+📝Notes:-
+
+SPA rewrite is configured via vercel.json:
+
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
+
+
+Ensure backend API URL is correct for deployment.
+
+License:
+MIT License
