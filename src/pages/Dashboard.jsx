@@ -117,7 +117,7 @@ function Dashboard() {
             <div className="m-2 mt-4 ">
               <p className="text-lg font-semibold">YouTube<span className="text-[#003436] mx-3">➙</span> <span className="font-medium text-[#012324] ">{ytCount}</span></p>
               <p className="text-lg font-semibold">Udemy<span className="text-[#003436] mx-3">➙</span> <span className="font-medium text-[#012324] ">{udemyCount}</span></p>
-              <p className="text-lg font-semibold">Coursera<span className="text-[#003436] mx-3">➙</span> <span className="font-medium text-[#012324] ">{courseCount}</span></p>
+              <p className="text-lg font-semibold">Coursera<span className="text-[#003436] mx-3">➙</span> <span className="font-medium text-[#012324] ">{courseraCount}</span></p>
               <p className="text-lg font-semibold">Other<span className="text-[#003436] mx-3">➙</span> <span className="font-medium text-[#012324] ">{otherCount}</span></p>
             </div>
           </div>
