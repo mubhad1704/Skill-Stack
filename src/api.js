@@ -1,5 +1,5 @@
 import axios from "axios";
 const API = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "https://skill-stack-backend-production.up.railway.app",
 });
 export default API;

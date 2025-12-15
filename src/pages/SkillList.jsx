@@ -178,8 +178,9 @@ function SkillList() {
             </div>
           ))}
 
-          {skills.length === 0 && <p>No Skills added yet.</p>}
+          
         </div>
+        {skills.length === 0 && <p>No Skills added yet.</p>}
       </div>
 
       <Footer />
